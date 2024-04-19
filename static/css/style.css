@@ -1,0 +1,123 @@
+/* base.html */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #444;
+    padding: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navbar a:hover {
+    color: #ccc;
+}
+
+/* contact_list.html */
+.contact-list {
+    margin-top: 20px;
+}
+
+.contact-list li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.contact-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-list li a:hover {
+    color: #666;
+}
+
+.add-contact-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-contact-btn:hover {
+    background-color: #0056b3;
+}
+
+/* contact_form.html */
+.contact-form {
+    margin-top: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="number"],
+.contact-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* contact_detail.html */
+.contact-details {
+    margin-top: 20px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+.contact-details strong {
+    font-weight: bold;
+}
+
+.contact-details a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}

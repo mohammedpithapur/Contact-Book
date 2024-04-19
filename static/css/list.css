@@ -1,0 +1,55 @@
+/* Style for contact list */
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style for each contact item */
+.contact-list li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style for contact info */
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-name {
+    font-weight: bold;
+}
+
+.contact-rollnumber {
+    color: #888;
+}
+
+/* Style for contact actions */
+.contact-actions {
+    margin-top: 10px;
+}
+
+.edit-button,
+.delete-button,
+.add-contact-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.add-contact-button:hover {
+    background-color: #0056b3;
+}
+
+.add-contact-button {
+    margin-top: 20px;
+}

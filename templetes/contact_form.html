@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Add/Edit Contact{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Contect Book</a>
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br><br>
+  
+    <h1>{% if contact %}Edit Contact{% else %}Add Contact{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required value="{% if contact %}{{ contact.name }}{% endif %}">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required value="{% if contact %}{{ contact.email }}{% endif %}">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required value="{% if contact %}{{ contact.phone }}{% endif %}">
+        
+        <!-- Add a container for dynamic fields -->
+        {% if contact.extra_data.items %}
+            {% for key, value in contact.extra_data.items %}
+              <label for="new-label">Label:</label>
+              <input type="text" id="new-label" name="label" value="{{key}}">
+              <label for="new-field">Field:</label>
+              <input type="text" id="new-field" name="new_field[]" value='{{value}}'>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <div id="dynamic-fields">
+            <!-- Existing dynamic fields will be added here -->
+        </div>
+        
+        <!-- Button to add new field -->
+        <button type="button" class="btn btn-primary" onclick="addNewField()">Add New Field</button>
+        
+        <!-- Hidden template for new field -->
+        <div id="field-template" style="display: none;">
+            <label for="new-label">New Label:</label>
+            <input type="text" id="new-label" name="label">
+            <label for="new-field">New Field:</label>
+            <input type="text" id="new-field" name="new_field[]">
+        </div>
+        
+        <button class="btn btn-primary" type="submit">{% if contact %}Update{% else %}Add{% endif %}</button>
+    </form>
+    
+    <script>
+        // Function to add a new field
+        function addNewField() {
+            // Clone the field template
+            var fieldTemplate = document.getElementById('field-template').cloneNode(true);
+            
+            // Show the cloned field
+            fieldTemplate.style.display = 'block';
+            
+            // Append the cloned field to the dynamic-fields container
+            document.getElementById('dynamic-fields').appendChild(fieldTemplate);
+        }
+        
+    </script>
+{% endblock %}
