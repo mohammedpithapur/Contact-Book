@@ -3,6 +3,7 @@ import jsonfield
 
 # Create your models here.
 class InfoModel(models.Model):
+    owner=models.IntegerField()
     rollnumber=models.IntegerField(primary_key=True)
     name=models.CharField(max_length=255)
     email=models.EmailField()

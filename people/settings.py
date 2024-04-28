@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'info',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -72,14 +73,13 @@ WSGI_APPLICATION = 'people.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'peopleinfo',
         'CLIENT': {
-            'host': "mongodb+srv://mohammedpithapur786:mohammed786@peopleinfo.mg0yiwj.mongodb.net/?retryWrites=true&w=majority&appName=peopleinfo"
+            'host': ""
     }}
 }
 
@@ -122,3 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login'
+

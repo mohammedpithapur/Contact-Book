@@ -4,12 +4,15 @@ import random
 
 # Create your views here.
 def list(request):
-    contact=InfoModel.objects.all()
+    owner=request.user.id
+    contact=InfoModel.objects.filter(owner=owner)
+    print(contact)
     
     return render(request, 'contact_list.html', {"contact":contact})
 
 
 def add_contact(request, contact_id=None):
+    owner=request.user.id
     # If contact_id is provided, it means we are editing an existing contact
     if contact_id:
         contact = InfoModel.objects.get(rollnumber=contact_id)
@@ -58,7 +61,7 @@ def add_contact(request, contact_id=None):
             dynamic_data={}
         else:
             # If adding a new contact, create a new Contact object
-            contact = InfoModel.objects.create(rollnumber=number, name=name, email=email, phone=phone, extra_data=dynamic_data)
+            contact = InfoModel.objects.create(owner=owner,rollnumber=number, name=name, email=email, phone=phone, extra_data=dynamic_data)
             dynamic_data={}
         return redirect('/')  # Redirect to the contact list page after adding/editing a contact
     else:
