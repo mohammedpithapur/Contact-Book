@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'peopleinfo',
         'CLIENT': {
-            'host': ""
+            'host': "mongodb+srv://mohammedpithapur786:mohammed786@peopleinfo.mg0yiwj.mongodb.net/?retryWrites=true&w=majority&appName=peopleinfo"
     }}
 }
 
